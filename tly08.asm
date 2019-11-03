@@ -10,7 +10,7 @@ RegSave_A       def     1
 RegSave_X       def     1
 RegSave_H       def     1
 
-TASKCOUNT       def     3
+TASKCOUNT       def     4
 
 STACKLEN        def     32
 

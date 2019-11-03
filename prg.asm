@@ -16,6 +16,7 @@ VARIABLE_SEGMENT def 1
 #include "tly08.asm"            ; Task handler
 #include "tbm.asm"              ; Time Base Module
 #include "adc.asm"              ; Analogue Digital Converter
+#include "can.asm"              ; CAN
 
 #undef VARIABLE_SEGMENT
 
@@ -37,10 +38,11 @@ CODE_SEGMENT def 1
 #include "mac.asm"              ; Useful macros
 #include "lib.asm"              ; Library functions
 #include "tly08.asm"            ; Task handler
-#include "led.asm"              ; Debug LED flasher task 
+#include "led.asm"              ; Debug LED flasher task
 #include "sci.asm"              ; UART serial communication
 #include "tbm.asm"              ; Time Base Module
 #include "adc.asm"              ; Analogue Digital Converter
+#include "can.asm"              ; CAN
 
 #undef CODE_SEGMENT
 
@@ -56,12 +58,13 @@ entry
 
         ; Init IO ports
         jsr     Led_Init
-        
+
         ; Init Modules
-        bsr     TBM_Init
+        jsr     TBM_Init
         jsr     TH_Init
         jsr     SCI_Init
-        bsr     ADC_Init
+        jsr     ADC_Init
+        jsr     CAN_Init
 
         ; Create tasks
         ldhx    #Led_Task       ; Blink debug LED
@@ -69,6 +72,8 @@ entry
         ldhx    #SCI_Task       ; Echo and reset for download
         jsr     CreateTask
         ldhx    #ADC_Task       ; Print out ASC values on SCI
+        jsr     CreateTask
+        ldhx    #CAN_Task       ; CAN Echo and print out CAN messages on SCI
         jsr     CreateTask
 
         ; Check if number of task is not more that reserved memory
@@ -87,4 +92,4 @@ entry
 end_prg         equ     $
 prg_len         equ     end_prg-prg_start
 
-        
+

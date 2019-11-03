@@ -12,6 +12,20 @@ hexakars
 welcome fcs     'HC908GZ60 Application Template (github.com/butyi/gzat)',$0a
 
 
+
+;-----------------------------------------
+; Macros
+;-----------------------------------------
+putk    macro   char
+        lda     #~1~
+        jsr     sciputc
+        endm
+
+putn    macro
+        lda     #$0A
+        jsr     sciputc
+        endm
+
 ;-----------------------------------------
 ; Functions
 ;-----------------------------------------

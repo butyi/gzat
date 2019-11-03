@@ -91,19 +91,18 @@ ADC_Task
         ; Time elapsed, pull up timer
         mov     #30,adc_timer
 
-        ; Print out ADC values
-        clrh
-        clrx
-ADC_Task_1
-        lda     adc_vals,x
-        jsr     sciputb
-        incx
-        txa
-        cmp     #ADC_CHAN_NUM*2
-        blo     ADC_Task_1
-        
-        lda     #$0a
-        bsr     sciputc
+;        ; Print out ADC values
+;        clrh
+;        clrx
+;ADC_Task_1
+;        lda     adc_vals,x
+;        jsr     sciputb
+;        incx
+;        txa
+;        cmp     #ADC_CHAN_NUM*2
+;        blo     ADC_Task_1
+;        lda     #$0a
+;        bsr     sciputc
 
         ; Again
         bra     ADC_Task

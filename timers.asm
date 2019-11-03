@@ -6,4 +6,5 @@
 
 led_timer       ds      1
 adc_timer       ds      1
+can_timer       ds      1
 
