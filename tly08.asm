@@ -54,12 +54,12 @@ CTC_ret
 ; Start address is in H:X
 CreateTask
         sthx    THhx2           ; Save start address
-        ; Prepare task stack of task of THTaskNum with staff to neccessary to run 
+        ; Prepare task stack of task of THTaskNum with staff to neccessary to run
         clr     TaskSP
         clr     TaskSP+1
         ldx     THTaskNum       ;SP=&THStack[taszknum*STACKLEN]
         incx                    ;This is because stack is from higher address to lower
-CT_c1    
+CT_c1
         tstx
         beq     CT_v
 
@@ -88,7 +88,7 @@ CT_v
         txs                     ; Switch to stack of selected task
 
         ; Fill up with content
-        ldhx    THhx2           ; Get start address 
+        ldhx    THhx2           ; Get start address
         pshx                    ; Address low
         pshh                    ; Address high (like done by a jsr)
         clrx
@@ -185,7 +185,7 @@ LS_kov
         lda     seged
 #endif
         cli
-        
+
         ; Jump to saved address
         rts
 

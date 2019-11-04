@@ -19,13 +19,13 @@ LEDMASK EQU     $20
 ;-----------------------------------------
 LEDINIT macro
         bset    LEDBIT,LEDDDR
-        endm 
+        endm
 
 LEDNEG  macro
         lda     LEDPORT
         eor     LEDMASK
         sta     LEDPORT
-        endm 
+        endm
 
 LEDOFF  macro
         bclr    LEDBIT,LEDPORT

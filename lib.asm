@@ -13,8 +13,8 @@ addhxanda
         pula            ; ----||----
         adc     #0      ;add carry
         psha            ;store to H (op1 hi)
-        pulh            ; ----||----            
-        
+        pulh            ; ----||----
+
         pula            ;restore A
         rts
 

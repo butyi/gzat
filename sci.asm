@@ -6,7 +6,7 @@
 ;-----------------------------------------
 ; Strings
 ;-----------------------------------------
-hexakars        
+hexakars
         db      '0123456789ABCDEF'
 
 welcome fcs     'HC908GZ60 Application Template (github.com/butyi/gzat)',$0a

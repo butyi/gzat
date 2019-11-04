@@ -20,27 +20,27 @@ sthxf   macro   par
 req     macro       ;Return if eq
         bne     $+2+1
         rts
-        endm 
+        endm
 
 rlo     macro       ;Return if lo
         bhs     $+2+1
         rts
-        endm 
+        endm
 
 rne     macro           ;Return if not eq
         beq     $+2+1
         rts
-        endm 
+        endm
 
 rcc     macro           ;Return if Carry Clear
         bcs     $+2+1
         rts
-        endm 
+        endm
 
 rcs     macro   ;Return if Carry Set
         bcc     $+2+1
         rts
-        endm 
+        endm
 
 
 
@@ -93,7 +93,7 @@ cev     macro   num     ;Clear EVent
 ;        cmp     =max
 ;        blo     $+4
 ;        bra     $+4
-;        inc     valtozo   
+;        inc     valtozo
 ;        pula
 ;#endm
 clrw    macro   val
