@@ -17,6 +17,7 @@ VARIABLE_SEGMENT def 1
 #include "tbm.asm"              ; Time Base Module
 #include "adc.asm"              ; Analogue Digital Converter
 #include "can.asm"              ; CAN
+#include "pwm.asm"              ; Pulse Width Modulation
 
 #undef VARIABLE_SEGMENT
 
@@ -43,6 +44,7 @@ CODE_SEGMENT def 1
 #include "tbm.asm"              ; Time Base Module
 #include "adc.asm"              ; Analogue Digital Converter
 #include "can.asm"              ; CAN
+#include "pwm.asm"              ; Pulse Width Modulation
 
 #undef CODE_SEGMENT
 
@@ -65,6 +67,7 @@ entry
         jsr     SCI_Init
         jsr     ADC_Init
         jsr     CAN_Init
+        bsr     PWM_Init
 
         ; Create tasks
         ldhx    #Led_Task       ; Blink debug LED

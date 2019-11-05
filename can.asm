@@ -152,7 +152,7 @@ CAN_getm_1
         sta     can_id+1
 
         ; Clear Rx Buffer flag by writing 1 to register
-        lda     #RXF
+        lda     #$FF
         sta     CRFLG
 
 #ifdef MESSAGE2SCI
