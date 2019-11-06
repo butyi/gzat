@@ -62,6 +62,7 @@ CMP_CAN_ID      macro   id      ; id is like 0x19FE110B
 ; Variables
 ;-----------------------------------------
 
+#XRAM
 can_buff_len    equ     14
 can_message     ds      can_buff_len    ; Structure is same as in uC
 can_id          equ     can_message
@@ -158,7 +159,7 @@ CAN_getm_1
 #ifdef MESSAGE2SCI
         ; Print message on SCI
         @putk   'R'
-        bsr     msg2sci
+        jsr     msg2sci
 #endif
         sec                     ; return value: new message available
         rts
@@ -223,8 +224,9 @@ CAN_Task
         ; Here handle message $19FE110B
         ;  Send same data back with different ID to test LD_CAN_ID macro
         @LD_CAN_ID     0x0CEE222F
-        clr     can_data
-        clr     can_data+1
+        clra
+        sta     can_data
+        sta     can_data+1
         bsr     CAN_putm
 
         bra     CAN_Task

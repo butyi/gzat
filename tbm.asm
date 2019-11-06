@@ -7,6 +7,8 @@
 ;-----------------------------------------
 #ifdef VARIABLE_SEGMENT
 
+#RAM
+
 first_timer
 
 #include "timers.asm"

@@ -9,7 +9,10 @@
 
 ADC_CHAN_NUM    equ     6
 
+#RAM
 adc_chan        ds      1
+
+#XRAM
 adc_vals        ds      ADC_CHAN_NUM*2  ; Word for every channel
 
 #endif

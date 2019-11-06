@@ -12,13 +12,14 @@ RegSave_H       def     1
 
 TASKCOUNT       def     5
 
-STACKLEN        def     16
+STACKLEN        def     32
 
 #ifdef VARIABLE_SEGMENT
 
 ;-----------------------------------------
 ; Variables
 ;-----------------------------------------
+#RAM
 #ifdef RegSave_CCR
 seged           ds      1
 #endif
@@ -27,8 +28,10 @@ THTaskNum       ds      1       ; Number of currently running tasks
 TaskSP          ds      2
 GlobSP          ds      2
 THStackAddr     ds      TASKCOUNT*2     ; Address of task stack pointers
-THStack         ds      STACKLEN*TASKCOUNT      ; Task stack arrays
 THhx2           ds      2
+
+#XRAM
+THStack         ds      STACKLEN*TASKCOUNT      ; Task stack arrays
 
 #endif
 

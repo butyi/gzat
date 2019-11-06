@@ -10,7 +10,7 @@
 ;-----------------------------------------
 ; VARIABLES
 ;-----------------------------------------
-#RAM
+#XRAM
 VARIABLE_SEGMENT def 1
 
 #include "tly08.asm"            ; Task handler
@@ -20,6 +20,8 @@ VARIABLE_SEGMENT def 1
 #include "pwm.asm"              ; Pulse Width Modulation
 
 #undef VARIABLE_SEGMENT
+
+
 
         org     Vreset
         dw      entry
