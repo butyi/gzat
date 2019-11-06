@@ -10,9 +10,9 @@ RegSave_A       def     1
 RegSave_X       def     1
 RegSave_H       def     1
 
-TASKCOUNT       def     4
+TASKCOUNT       def     5
 
-STACKLEN        def     32
+STACKLEN        def     16
 
 #ifdef VARIABLE_SEGMENT
 

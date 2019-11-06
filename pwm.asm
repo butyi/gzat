@@ -26,6 +26,7 @@ T1CH0_RAM       ds      2       ; RAM mirror of duty
 pwm_org
         org     Vtpm1ch0
         dw      T1CH0_IT
+
         org     pwm_org
 
 ;-----------------------------------------
@@ -34,25 +35,38 @@ pwm_org
 PWM_Init
         ;TimerInit
         mov     #TSTOP|TRST|PS_0,T1SC
-        clrx
-        stx     T1CH0H
-        stx     T1CH0L
-        decx
-        stx     T1MODH          ; 122Hz, 16bit
-        stx     T1MODL
+        ldhx    #300
+        sthx    T1CH0
+        sthx    T1CH0_RAM
+        lda     #$FF
+        sta     T1MODH          ; 122Hz, 16bit
+        sta     T1MODL
         mov     #CHxIE|MSxA|TOVx|ELSx_2,T1SC0
         bclr    5,T1SC
-
-        clr     T1CH0_RAM
-        clr     T1CH0_RAM+1
-
         rts
 
         ;timer interrupt fills the real registers to prevent faulty PWM pulses
 T1CH0_IT
-        mov     T1CH0_RAM,T1CH0H
-        mov     T1CH0_RAM+1,T1CH0L
-        bclr    7,T1SC0
+        pshh
+        ldhx    T1CH0_RAM
+        sthx    T1CH0
+        bclr    7,T1SC0         ; Clear interrupt flag
+        pulh
         rti
+
+PWM_Task
+        jsr     LoSchedule
+
+        sei
+        ldhx    T1CH0_RAM
+        aix     #-1
+        sthx    T1CH0_RAM
+        cli
+
+        bra     PWM_Task
+
+
+
+
 
 #endif

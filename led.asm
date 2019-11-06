@@ -23,7 +23,7 @@ LEDINIT macro
 
 LEDNEG  macro
         lda     LEDPORT
-        eor     LEDMASK
+        eor     #LEDMASK
         sta     LEDPORT
         endm
 
@@ -62,5 +62,4 @@ Led_Task
         bra     Led_Task
 
 #endif
-
 

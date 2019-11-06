@@ -78,6 +78,8 @@ entry
         jsr     CreateTask
         ldhx    #CAN_Task       ; CAN Echo and print out CAN messages on SCI
         jsr     CreateTask
+        ldhx    #PWM_Task
+        jsr     CreateTask
 
         ; Check if number of task is not more that reserved memory
         jsr     CheckTaskCount

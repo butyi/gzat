@@ -5,7 +5,7 @@ GREEN_TEXT='\e[1;32m'
 BLUE_TEXT='\e[1;34m'
 ENDCOLOR='\e[0m'
 
-asm8 -E+ prg.asm
+asm8 -E+ -WRN -M prg.asm
 if [ $? -ne 0 ] # cd command faults
 then
   echo -e "${RED_TEXT}ERROR! Compile failed.${ENDCOLOR}"
