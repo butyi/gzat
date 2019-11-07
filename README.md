@@ -52,8 +52,17 @@ At task handover the configured registers are saved and restored into task stack
 
 ## Compile
 
-Check out the repo and just call `asm8 prg.asm`. 
+Check out the repo and just call `asm8 prg.asm` on Linux. On Windows use `asm8.exe prg.asm`.
 prg.s19 will be ready to be downloaded by once GZ downloader [gzdl.c](https://github.com/butyi/gzdl.c/) or [gzdl.py](https://github.com/butyi/gzdl.py/).
+
+## Bash files
+
+- `./c`: Compile
+- `./p`: Program and Terminal
+- `./t`: Terminal only
+- `./cp`: Compile, (if there is no compile error) Program and Terminal
+
+On Windows PC, `*.bat` files must be created based on these bash files. Inside calls are very similar, but batch systax is different from bash systax.
 
 ## License
 
