@@ -42,8 +42,8 @@ CODE_SEGMENT def 1
 #include "lib.asm"              ; Library functions
 #include "tly08.asm"            ; Task handler
 #include "led.asm"              ; Debug LED flasher task
-#include "sci.asm"              ; UART serial communication
 #include "tbm.asm"              ; Time Base Module
+#include "sci.asm"              ; UART serial communication
 #include "adc.asm"              ; Analogue Digital Converter
 #include "can.asm"              ; CAN
 #include "pwm.asm"              ; Pulse Width Modulation
@@ -64,8 +64,8 @@ entry
         jsr     Led_Init
 
         ; Init Modules
-        jsr     TBM_Init
         jsr     TH_Init
+        jsr     TBM_Init
         jsr     SCI_Init
         jsr     ADC_Init
         jsr     CAN_Init

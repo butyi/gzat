@@ -12,7 +12,7 @@ RegSave_H       def     1
 
 TASKCOUNT       def     5
 
-STACKLEN        def     32
+STACKLEN        def     64
 
 #ifdef VARIABLE_SEGMENT
 
@@ -30,7 +30,7 @@ GlobSP          ds      2
 THStackAddr     ds      TASKCOUNT*2     ; Address of task stack pointers
 THhx2           ds      2
 
-#XRAM
+#SEG1
 THStack         ds      STACKLEN*TASKCOUNT      ; Task stack arrays
 
 #endif
