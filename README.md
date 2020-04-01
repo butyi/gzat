@@ -52,7 +52,7 @@ At task handover the configured registers are saved and restored into task stack
 
 ## Compile
 
-Check out the repo and just call `asm8 prg.asm` on Linux. On Windows use `asm8.exe prg.asm`.
+Check out the repo and just call `asm8 prg.asm` on Linux. On Windows use `asm8.exe prg.asm`. Thanks to [ASPiSYS](http://www.aspisys.com/asm8.htm) for compiler!
 prg.s19 will be ready to be downloaded by once GZ downloader [gzdl.c](https://github.com/butyi/gzdl.c/) or [gzdl.py](https://github.com/butyi/gzdl.py/).
 
 ## Bash files
